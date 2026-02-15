@@ -1,0 +1,14 @@
+{
+  "name": "tic-tac-toe-multiplayer",
+  "version": "1.0.0",
+  "description": "Online multiplayer tic-tac-toe with simultaneous game rooms",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "socket.io": "^4.7.4"
+  }
+}

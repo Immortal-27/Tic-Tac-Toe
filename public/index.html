@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tic-Tac-Toe — Online Multiplayer</title>
+  <meta name="description" content="Play real-time multiplayer tic-tac-toe online with friends. Create or join a room and battle it out!" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Animated background orbs -->
+  <div class="bg-orbs" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="orb orb-4"></div>
+  </div>
+
+  <!-- ═══════════════  LOBBY  ═══════════════ -->
+  <section id="lobby" class="view active">
+    <div class="glass-card lobby-card">
+      <div class="logo">
+        <span class="logo-x">X</span><span class="logo-o">O</span>
+      </div>
+      <h1>Tic-Tac-Toe</h1>
+      <p class="subtitle">Real-time Multiplayer</p>
+
+      <div class="input-group">
+        <label for="playerName">Your Name</label>
+        <input type="text" id="playerName" placeholder="Enter your name" maxlength="16" autocomplete="off" />
+      </div>
+
+      <button id="btnCreate" class="btn btn-primary">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        Create Room
+      </button>
+
+      <div class="divider"><span>or join a friend</span></div>
+
+      <div class="join-row">
+        <input type="text" id="roomCodeInput" placeholder="Room code" maxlength="6" autocomplete="off" />
+        <button id="btnJoin" class="btn btn-secondary">Join</button>
+      </div>
+
+      <p id="lobbyError" class="error-msg"></p>
+    </div>
+  </section>
+
+  <!-- ═══════════════  WAITING  ═══════════════ -->
+  <section id="waiting" class="view">
+    <div class="glass-card waiting-card">
+      <h2>Waiting for opponent…</h2>
+      <p class="room-code-label">Share this room code</p>
+      <div class="room-code-display" id="roomCodeDisplay">------</div>
+      <button id="btnCopyCode" class="btn btn-ghost">Copy Code</button>
+      <div class="loader">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════  GAME  ═══════════════ -->
+  <section id="game" class="view">
+    <div class="game-header">
+      <div class="player-tag player-x">
+        <span class="symbol">X</span>
+        <span class="pname" id="nameX">Player 1</span>
+        <span class="score" id="scoreX">0</span>
+      </div>
+      <div class="round-info">
+        <span id="turnIndicator" class="turn-badge">X's turn</span>
+        <span class="draw-score">Draws: <strong id="scoreDraw">0</strong></span>
+      </div>
+      <div class="player-tag player-o">
+        <span class="score" id="scoreO">0</span>
+        <span class="pname" id="nameO">Player 2</span>
+        <span class="symbol">O</span>
+      </div>
+    </div>
+
+    <div class="board-wrapper">
+      <div class="board" id="board">
+        <button class="cell" data-index="0"></button>
+        <button class="cell" data-index="1"></button>
+        <button class="cell" data-index="2"></button>
+        <button class="cell" data-index="3"></button>
+        <button class="cell" data-index="4"></button>
+        <button class="cell" data-index="5"></button>
+        <button class="cell" data-index="6"></button>
+        <button class="cell" data-index="7"></button>
+        <button class="cell" data-index="8"></button>
+      </div>
+    </div>
+
+    <!-- Result overlay -->
+    <div id="resultOverlay" class="result-overlay hidden">
+      <div class="glass-card result-card">
+        <h2 id="resultText">You Win!</h2>
+        <button id="btnRematch" class="btn btn-primary">Rematch</button>
+      </div>
+    </div>
+
+    <div class="room-code-footer">
+      Room: <strong id="footerRoomCode">---</strong>
+    </div>
+  </section>
+
+  <!-- Opponent left toast -->
+  <div id="toast" class="toast hidden">Opponent has left the game.</div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
