@@ -13,8 +13,8 @@ A robust, real-time multiplayer Tic-Tac-Toe game that allows players to create p
 ## 📸 Screenshots
 
 <div align="center">
-  <img src="https://via.placeholder.com/700x400?text=Game+Lobby+Screenshot" alt="Game Lobby" width="45%">
-  <img src="https://via.placeholder.com/700x400?text=Gameplay+Screenshot" alt="Gameplay" width="45%">
+  <img src="https://i.postimg.cc/tnV0rBGd/image.png" alt="Game Lobby" width="45%">
+  <img src="https://i.postimg.cc/gwDGRtGk/image.png" alt="Gameplay" width="45%">
 </div>
 
 ---
@@ -106,6 +106,7 @@ Contributions are welcome! If you have suggestions for improvements or bug fixes
 * Website: [tic-tac-toe.swarnabhadev.in](https://tic-tac-toe.swarnabhadev.in)
 * GitHub: [@Immortal-27](https://github.com/Immortal-27)
 * LinkedIn: [Swarnabha Bhattacharjee](https://linkedin.com/in/swarnabha-bhattacharjee)
+* E-Mail: [Swarnabha Bhattacharjee](mailto:contact@swarnabha.xyz)
 
 ---
 
